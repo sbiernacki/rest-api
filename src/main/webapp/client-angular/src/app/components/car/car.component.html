@@ -1,0 +1,88 @@
+<div>
+  <div class="logo">Wprowadź date</div>
+  <div class="register-item">
+    <form #findByDate="ngForm" (ngSubmit)="getCarsByDate(findByDate)" class="form form-register">
+
+      <div class="form-field">
+        <label class="user" for="date_from"><span class="hidden">Od</span></label>
+        <input name="date_from" id="date_from" type="text" class="form-input" placeholder="Od" ngModel required>
+      </div>
+      <div class="form-field">
+        <label class="user" for="date_to"><span class="hidden">Do</span></label>
+        <input name="date_to" id="date_to" type="text" class="form-input" placeholder="Do" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <input type="submit" value="Szukaj">
+      </div>
+    </form>
+  </div>
+</div>
+
+<div>
+    <mat-table [dataSource]="cars">
+      <ng-container matColumnDef="ID">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let car"> {{car.carId}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="mark">
+        <mat-header-cell *matHeaderCellDef> Marka </mat-header-cell>
+        <mat-cell *matCellDef="let car"> {{car.mark}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef> Model </mat-header-cell>
+        <mat-cell *matCellDef="let car"> {{car.model}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="color">
+        <mat-header-cell *matHeaderCellDef> Kolor </mat-header-cell>
+        <mat-cell *matCellDef="let car"> {{car.color}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="productionDate">
+        <mat-header-cell *matHeaderCellDef> Data produkcji </mat-header-cell>
+        <mat-cell *matCellDef="let car"> {{car.productionDate}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="['ID', 'mark', 'model', 'color', 'productionDate']"></mat-header-row>
+      <mat-row *matRowDef="let car; columns: ['ID', 'mark', 'model', 'color', 'productionDate']"></mat-row>
+    </mat-table>
+</div>
+
+<div>
+  <div class="logo">Dodaj nowy samochód</div>
+  <div class="register-item">
+    <form #myform="ngForm" (ngSubmit)="save(myform)" class="form form-register">
+
+      <div class="form-field">
+        <label class="user" for="car-id"><span class="hidden">ID</span></label>
+        <input name="car_id" id="car-id" type="number" class="form-input" placeholder="ID" ngModel required>
+      </div>
+      <div class="form-field">
+        <label class="user" for="car-mark"><span class="hidden">Marka</span></label>
+        <input name="car_mark" id="car-mark" type="text" class="form-input" placeholder="Marka" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <label class="user" for="car-model"><span class="hidden">Model</span></label>
+        <input name="car_model" id="car-model" type="text" class="form-input" placeholder="Model" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <label class="user" for="car-color"><span class="hidden">Kolor</span></label>
+        <input name="car_color" id="car-color" type="text" class="form-input" placeholder="Kolor" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <label class="user" for="car-production-date"><span class="hidden">Data produkcji</span></label>
+        <input name="car_production_date" id="car-production-date" type="text" class="form-input" placeholder="Data produkcji" ngModel required>
+      </div>
+
+      <div class="form-field">
+        <input type="submit" value="Zapisz">
+      </div>
+    </form>
+  </div>
+</div>

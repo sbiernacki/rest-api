@@ -1,0 +1,31 @@
+<div>
+  <mat-table [dataSource]="news">
+    <ng-container matColumnDef="ID">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let news"> {{news.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="author">
+      <mat-header-cell *matHeaderCellDef> Autor </mat-header-cell>
+      <mat-cell *matCellDef="let news"> {{news.author}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Tytuł </mat-header-cell>
+      <mat-cell *matCellDef="let news"> {{news.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Opis </mat-header-cell>
+      <mat-cell *matCellDef="let news"> {{news.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="content">
+      <mat-header-cell *matHeaderCellDef> Kontent </mat-header-cell>
+      <mat-cell *matCellDef="let news"> {{news.content}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['ID', 'author', 'title', 'description', 'content']"></mat-header-row>
+    <mat-row *matRowDef="let news; columns: ['ID', 'author', 'title', 'description', 'content']"></mat-row>
+  </mat-table>
+</div>
